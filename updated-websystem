@@ -1,0 +1,337 @@
+
+#-----------ACCOUNTS--------------
+accounts = [
+    ("mel","galat"),
+    ("nelgie","sdyn"),
+    ("glaipam","1026"),
+    ("keikei","0220"),
+    ("samrograno","5221")
+    ("cyjosh","dubidubidapdap")
+    ]
+
+#-----------MENU--------------
+
+def menu():
+    print("cheezies")
+    print("1. Left or Right?")
+    print("2. Guessing Game")
+    print("3. Axis Quiz Game")
+    print("4. Tuples")
+    print("5. Functions")
+    print("0. Exit")
+
+    choice = int(input("Select: "))
+
+
+    if choice == 0:
+        print("Exiting program... 👋")
+        exit()
+        
+    elif choice == 1:
+        print("You Select Left or Right")
+        left_or_right()
+
+    elif choice == 2:
+        print("You Select Guessing Game")
+        guessing_game()
+
+    elif choice == 3:
+        print("You Select Axis Quiz")
+        axis_quiz_game()
+
+    elif choice == 4:
+        print("You Select Tuples")
+
+    elif choice == 5:
+        print("You Select Functions")
+        accs_functions()
+        
+
+
+#-------------CALLING THE FUNCTIONS EVERY MENU----------------
+
+        
+#****************1. LEFT OR RIGHT == SABATER****************
+
+def left_or_right():
+    print("You are in a dark forest 🌲")
+    choice = input("Do you go LEFT or RIGHT? ").lower()
+
+    if choice == "left":
+        print("You found a treasure chest! 💰")
+        action = input("Do you OPEN it or LEAVE it? ").lower()
+        
+        if action == "open":
+            print("Congrats! You found gold coins! 🪙")
+        else:
+            print("You walked away safely, but missed the treasure.")
+            
+    elif choice == "right":
+        print("Oh no! You encountered a wild animal 🐺")
+        action = input("Do you RUN or FIGHT? ").lower()
+        
+        if action == "run":
+            print("You escaped safely! 🏃")
+        else:
+            print("The animal was too strong. Game Over 💀")
+            
+    else:
+        print("Invalid choice. You got lost in the forest.")
+
+
+        
+#****************2. GUESING GAME == PAMILGAN****************
+
+    def guessing_game():
+        print("\n🎮 === GUESSING GAME (LOOPS FOCUS) === 🎮")
+
+        score = 0
+
+        for round_num in range(1, 4):
+            print("\n" + "="*30)
+            print("🔥 Round", round_num)
+            print("="*30)
+
+            secret = random.randint(1, 20)
+            lives = 5
+
+            while lives > 0:
+                print("\n❤️ Lives:", lives)
+                guess = int(input("👉 Guess the number (1-20): "))
+
+                if guess == secret:
+                    print("🎉 Correct! You win this round!")
+                    score += 1
+                    break
+                elif guess < secret:
+                    print("📉 Too low!")
+                else:
+                    print("📈 Too high!")
+
+                lives -= 1
+
+            if lives == 0:
+                print("💀 You lost! The number was:", secret)
+
+        print("\n🏁 Game Over!")
+        print("⭐ Your Score:", score, "/ 3")
+
+
+#****************3. AXIS QUIZ == ROGANO****************
+        
+def axis_quiz_game():
+    score = 0
+
+    for question, correct_answer, choices in quiz:
+        print("\n" + question)
+
+        for choice in choices:
+            print(choice)
+
+        answer = input("Your answer (a/b/c): ").upper()
+
+        if answer == correct_answer:
+            print("✅ Correct!")
+            score += 1
+        else:
+            print("❌ Wrong!")
+
+    return score
+
+# -----------------------------
+def show_result(score, total):
+    print("\n🎯 Quiz Finished!")
+    print(f"Your score: {score}/{total}")
+    main_menu()
+
+    if score == total:
+        print("🏆 Perfect score, You Did A Insanely Good Job!")
+    elif score >= total // 2:
+        print("👍 Good job, Atleast You Still Passed!")
+    else:
+        print("📚 Your Score Is Not Good, Keep Practicing!")
+
+# -------------------------------
+quiz = [
+    ("1. What is Conditional Statement?", "A",
+     ["A) Programs often need to make decisions",
+      "B) Computes the result of an expression",
+      "C) Symbolic name for a value stored in memory."]),
+
+    ("2. Which is NOT a Python data type?", "C",
+     ["A) int", "B) bool", "C) LinkedList"]),
+
+    ("3. Which symbol is used to add numbers?", "B",
+     ["A) -", "B) +", "C) *"]),
+
+    ("4. Who created Python?", "A",
+     ["A) Guido van Rossum", "B) James Gosling", "C)  Ramus Lerdorf"]),
+
+    ("5. What computes expressions based on precedence?", "A",
+     ["A) Expression", "B) Logical", "C) Comparison"]),
+]
+
+
+#****************4. TUPLES == CALAGUAS****************
+
+
+
+#****************5. FUNCTIONS == COLILI****************
+
+
+def accs_functions():
+
+    # ==============================
+    # ACCOUNTS (LIST OF TUPLES)
+    # ==============================
+    accounts = [
+        ("mel", "1234"),
+        ("nelgiesdyn", "pass"),
+        ("glaipam", "qwerty"),
+        ("dixnykei", "1111"),
+        ("SamAxisinism", "abcd")
+    ]
+
+    # ==============================
+    # LOGIN FUNCTION
+    # ==============================
+    def login():
+        while True:
+            username = input("Enter username: ")
+            password = input("Enter password: ")
+
+            for acc in accounts:
+                if username == acc[0] and password == acc[1]:
+                    print("\nWelcome,", username)
+                    print("Professor: Sir Mel\n")
+                    return
+            print("Invalid! Try again.\n")
+
+
+    # ==============================
+    # MINI PROGRAMS
+    # ==============================
+    def program1():
+        # EVEN OR ODD
+        num = int(input("Enter a number: "))
+        if num % 2 == 0:
+            print("Even number\n")
+        else:
+            print("Odd number\n")
+
+
+    def program2():
+        # SUM OF NUMBERS USING LOOP
+        total = 0
+        n = int(input("Enter how many numbers: "))
+        for i in range(n):
+            num = int(input("Enter number: "))
+            total += num
+        print("Total:", total, "\n")
+
+
+    def program3():
+        # LIST EXAMPLE
+        items = []
+        n = int(input("How many items: "))
+        for i in range(n):
+            item = input("Enter item: ")
+            items.append(item)
+        print("List:", items, "\n")
+
+
+    def program4():
+        # TUPLE EXAMPLE
+        tup = ("Apple", "Banana", "Cherry")
+        print("Tuple:", tup)
+        print("First item:", tup[0], "\n")
+
+
+    def program5():
+        # SIMPLE CALCULATOR
+        a = int(input("Enter first number: "))
+        b = int(input("Enter second number: "))
+        op = input("Operator (+, -, *, /): ")
+
+        if op == "+":
+            print("Result:", a + b)
+        elif op == "-":
+            print("Result:", a - b)
+        elif op == "*":
+            print("Result:", a * b)
+        elif op == "/":
+            if b != 0:
+                print("Result:", a / b)
+            else:
+                print("Cannot divide by zero")
+        else:
+            print("Invalid operator")
+        print()
+
+
+    # ==============================
+    # MENU FUNCTION
+    # ==============================
+    def menu():
+        while True:
+            print("==== MAIN MENU ====")
+            print("1. Even or Odd")
+            print("2. Sum of Numbers")
+            print("3. List Example")
+            print("4. Tuple Example")
+            print("5. Calculator")
+            print("6. Exit")
+
+            choice = input("Choose (1-6): ")
+
+            if choice == "1":
+                program1()
+            elif choice == "2":
+                program2()
+            elif choice == "3":
+                program3()
+            elif choice == "4":
+                program4()
+            elif choice == "5":
+                program5()
+            elif choice == "6":
+                print("Exiting program...")
+                break
+            else:
+                print("Invalid choice\n")
+
+
+    # ==============================
+    # MAIN FUNCTION
+    # ==============================
+    def main():
+        login()
+        menu()
+
+
+    # RUN PROGRAM
+    main()
+
+
+
+
+#-----------LOG-IN--------------
+
+while True:
+    username = input("Enter your username: ")
+    password = input("Enter your password: ")
+
+    found = False
+
+    for acc in accounts:
+        if username == acc[0] and password == acc[1]:
+            print(f"Welcome, {username}")
+            menu()
+            found = True
+            break
+        
+    if found:
+        break
+    
+    else:
+        print("Invalid username and password!\n")
